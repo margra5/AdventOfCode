@@ -9,4 +9,5 @@ foreach ($data in $inData) {
     }
 }
 $calData = $calData | Sort-Object -Descending
-$calData[0]
+$calData = $calData[0] + $calData[1] + $calData[2]
+$calData
