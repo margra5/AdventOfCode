@@ -13,8 +13,6 @@ for v in f:
 
     tot += first_num + last_num
     tot_num += int(tot)
-
-    print(tot)
     tot = ""
 
 print(tot_num)
