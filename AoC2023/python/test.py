@@ -6,8 +6,6 @@ with open("inputFiles\input_day_1") as f:
 
 test_case = ["two1nine", "eighttwothree", "abcone2threexyz", "xtwone3four", "4nineeightseven2", "zoneight234", "7pqrstsixteen"]
 
-tot = ""
-tot_num = 0
 dict = {
     'one': '1',
     'two': '2',
@@ -21,38 +19,32 @@ dict = {
     'zero': '0'
 }
 
-word = ""
-i = 0
-"""
-def replace_letters(s):
-    for word, number in dict.items():
-        s = s.replace(word, number)
-        word = ""
-    return s
-
-def remove_letters(s):
-    return ''.join(char for char in s if char.isdigit())
-
-result = [replace_letters(s) for s in test_case]
-
-print(result)
-
-result = [remove_letters(s) for s in result]
-
-print(result)
-"""
-#for w in test_case:
-
 tot = ""
+tot_num = 0
+i = 0
+j = 0
+word = ""
 
 for v in test_case:
+    while i < len(v):
+        word += v[j]
+        print(word)
+        j += 1
+        if word in dict:
+            for word, number in dict.items():
+                v = v.replace(word, number)
+                word = ""
+                i += 1
+                j = 0
+
+print(test_case)
+
+for v in f:
     first_num = re.findall(r'\d', v)[0]
     last_num = re.findall(r'\d', v)[-1]
 
     tot += first_num + last_num
     tot_num += int(tot)
-
-    print(tot)
     tot = ""
 
 print(tot_num)
